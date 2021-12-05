@@ -26,7 +26,7 @@ const MAX_CREATOR_LEN = 32 + 1 + 1;
 
 const CandyMachine = ({ walletAddress }) => {
   // State
-  const [machineStats, setMachineStats] = useState(null);
+  const [machineStats, setMachineStats] = useState('');
 
   // Actions
   const fetchHashTable = async (hash, metadataEnabled) => {
@@ -282,7 +282,11 @@ const CandyMachine = ({ walletAddress }) => {
     const itemsRemaining = itemsAvailable - itemsRedeemed;
     const goLiveData = candyMachine.data.goLiveDate.toNumber();
 
-    const goLiveDateTimeString = `${new Date(goLiveData * 1000).toGMTString()}`;
+    const goLiveDateTimeString = `${new Date(
+      goLiveData * 1000
+    ).toLocaleDateString()} @ ${new Date(
+      goLiveData * 1000
+    ).toLocaleTimeString()}`;
 
     // Add this data to your state to render
     setMachineStats({
