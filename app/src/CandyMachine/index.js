@@ -287,7 +287,12 @@ const CandyMachine = ({ walletAddress }) => {
     const goLiveData = candyMachine.data.goLiveDate.toNumber();
 
     // We will be using this later in our UI so let's generate this now
-    const goLiveDateTimeString = `${new Date(goLiveData * 1000).toGMTString()}`;
+    // Time appears in user's local timezone
+    const goLiveDateTimeString = `${new Date(
+      goLiveData * 1000
+    ).toLocaleDateString()} @ ${new Date(
+      goLiveData * 1000
+    ).toLocaleTimeString()}`;
 
     console.log({
       itemsAvailable,
