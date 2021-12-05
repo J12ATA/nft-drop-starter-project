@@ -1,11 +1,11 @@
 {
   "name": "Cyclops",
   "symbol": "",
-  "image": "Cyclops.png",
+  "image": "0.png",
   "properties": {
     "files": [
       {
-        "uri": "Cyclops.png",
+        "uri": "0.png",
         "type": "image/png"
       }
     ],
