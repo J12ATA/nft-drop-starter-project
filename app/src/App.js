@@ -14,6 +14,11 @@ const App = () => {
       if (solana) {
         if (solana.isPhantom) {
           console.log('Phantom wallet found!');
+          const response = await solana.connect({ onlyIfTrusted: true });
+          console.log(
+            'Connected with Public Key:',
+            response.publicKey.toString()
+          );
         }
       } else {
         alert('Solana object not found! Get a Phantom Wallet 👻');
@@ -23,10 +28,6 @@ const App = () => {
     }
   };
 
-  /*
-   * When our component first mounts, let's check to see if we have a connected
-   * Phantom Wallet
-   */
   useEffect(() => {
     const onLoad = async () => {
       await checkIfWalletIsConnected();
